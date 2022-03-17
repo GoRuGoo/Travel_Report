@@ -40,6 +40,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'report.apps.ReportConfig',
+    'accounts.apps.AccountsConfig',
+
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
 ]
 
 MIDDLEWARE = [
@@ -134,3 +139,5 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR,'static'),
 )
+
+AUTH_USER_MODEL = 'accounts.CustomUser'
