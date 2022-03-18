@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'allauth',
     'allauth.account',
+    'allauth.socialaccount'
 ]
 
 MIDDLEWARE = [
@@ -136,9 +137,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR,'static'),
-)
 
 AUTH_USER_MODEL = 'accounts.CustomUser'
 
@@ -148,16 +146,17 @@ AUTHENTICATION_BACKENDS = (
     'allauth.account.auth_backends.AuthenticationBackend',  # 一般ユーザー用(メールアドレス認証)
     'django.contrib.auth.backends.ModelBackend',  # 管理サイト用(ユーザー名認証)
 )
- 
-ACCOUNT_AUTHENTICATION_METHOD = 'email'  # メールアドレス認証に変更する設定
-ACCOUNT_USERNAME_REQUIRED = False  # サインナップ、ログイン時のユーザーネーム認証をキャンセル
- 
-ACCOUNT_EMAIL_VERIFICATION = 'mandatory'  # サインアップにメールアドレス確認を使用
+
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_USERNAME_REQUIRED = False
+
+ACCOUNT_EMAIL_VERIFICATION = 'madatory'
 ACCOUNT_EMAIL_REQUIRED = True
- 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' # ローカルでの開発のためメールをコンソールで表示する
- 
-LOGIN_REDIRECT_URL = 'app:home'  # ログイン成功後の遷移先の指定
-ACCOUNT_LOGOUT_REDIRECT_URL = 'app:welcome'  # ログアウト成功後の遷移先の指定
- 
-ACCOUNT_LOGOUT_ON_GET = True  # 確認を行わずログアウトする設定
+
+LOGIN_REDIRECT_URL = 'report:home'
+ACCOUNT_LOGOU_REDIRECT_URL = 'account_login'
+
+ACCOUNT_LOGOU_ON_GET = True
+
+ACCONT_EMAIL_SUBJECT_PREFIX = ''
+DEFAULT_FROM_EMAIL = 'admin@example.com'
