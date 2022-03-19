@@ -160,3 +160,10 @@ ACCOUNT_LOGOU_ON_GET = True
 
 ACCONT_EMAIL_SUBJECT_PREFIX = ''
 DEFAULT_FROM_EMAIL = 'admin@example.com'
+
+
+STATICFILES_DIRS = (
+    [
+        os.path.join(BASE_DIR, "static"), 
+    ]
+)

@@ -6,5 +6,6 @@ app_name = 'report'
 urlpatterns = [
     path('',views.HomeView.as_view(),name="home"),
     path('travelreportlistview/',views.TravelReportListView.as_view(),name="travelreportlistview"),
+    path('not-exist/',views.NotView.as_view(),name="none")
 ]
 #urlのルーティングをするときは~~~~/とする。

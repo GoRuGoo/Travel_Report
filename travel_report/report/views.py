@@ -1,3 +1,4 @@
+from calendar import c
 from re import template
 from django.shortcuts import render
 
@@ -16,3 +17,6 @@ class TravelReportListView(LoginRequiredMixin,generic.ListView):
     def get_queryset(self):
         reports = TravelReport.objects.filter(user=self.request.user).order_by('-created_at')
         return reports
+
+class NotView(generic.TemplateView):
+    template_name = "404.html"
