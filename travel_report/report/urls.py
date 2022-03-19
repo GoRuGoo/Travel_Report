@@ -5,7 +5,5 @@ from . import views
 app_name = 'report'
 urlpatterns = [
     path('',views.HomeView.as_view(),name="home"),
-    path('./login',views.LoginView.as_view(),name="login"),
-    path('./signup',views.SignupView.as_view(),name="signup"),
-    path('./viewotherpeople',views.OtherView.as_view(),name="viewotherpeople"),
+    path('./viewotherpeople',views.TravelReportListView.as_view(),name="viewotherpeople"),
 ]
