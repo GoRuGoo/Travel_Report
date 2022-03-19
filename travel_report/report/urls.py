@@ -5,5 +5,6 @@ from . import views
 app_name = 'report'
 urlpatterns = [
     path('',views.HomeView.as_view(),name="home"),
-    path('./viewotherpeople',views.TravelReportListView.as_view(),name="viewotherpeople"),
+    path('travelreportlistview/',views.TravelReportListView.as_view(),name="travelreportlistview"),
 ]
+#urlのルーティングをするときは~~~~/とする。

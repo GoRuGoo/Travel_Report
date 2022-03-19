@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>記録を見る</title>
+    </head>
+    <body>
+        <div>
+            <h1>記録</h1>
+            {% for reports in travelreportlistview %}
+            <h2>
+                {{ reports.title }}
+            </h2>
+            <h3>
+                {{ reports.thoughts | truncatechars:20 }}
+            </h3>
+            {% empty %}
+            <p>記録がないよ</p>
+            {% endfor %}
+        </div>
+    </body>
+</html>
