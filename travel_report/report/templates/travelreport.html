@@ -8,10 +8,10 @@
         <div>
             <h1>記録</h1>
             {% for report in  object_list %}
-            <h2>
-                {{ report.title }}
-            </h2>
-            <h3>{{ report.content|truncatechars:20}}</h3>
+            <a href="{% url 'report:report_detail' report.pk %}">
+                <h2>{{ report.title }}</h2>
+                <h3>{{ report.content|truncatechars:20}}</h3>
+            </a>
             {% empty %}
             <h2>記録がありません</h2>
             {% endfor %}

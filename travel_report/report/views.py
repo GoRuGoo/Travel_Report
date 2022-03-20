@@ -1,5 +1,6 @@
 from calendar import c
 from re import template
+from django.forms import SlugField
 from django.shortcuts import render
 
 # Create your views here.
@@ -13,6 +14,7 @@ class HomeView(generic.TemplateView):
 class TravelReportListView(LoginRequiredMixin,generic.ListView):
     model = TravelReport
     template_name = 'travelreport.html'
+
     '''
     def get_queryset(self,**kwargs):
         reports = TravelReport.objects
@@ -20,3 +22,10 @@ class TravelReportListView(LoginRequiredMixin,generic.ListView):
     '''
 class NotView(generic.TemplateView):
     template_name = "404.html"
+
+
+
+class TravelReportDetailView(LoginRequiredMixin,generic.DetailView):
+    model = TravelReport
+    template_name = 'travelreportdetail.html'
+    pk_url_kwarg = 'id'
