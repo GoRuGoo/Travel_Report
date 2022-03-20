@@ -7,15 +7,13 @@
     <body>
         <div>
             <h1>記録</h1>
-            {% for reports in travelreportlistview %}
+            {% for report in  object_list %}
             <h2>
-                {{ reports.title }}
+                {{ report.title }}
             </h2>
-            <h3>
-                {{ reports.thoughts | truncatechars:20 }}
-            </h3>
+            <h3>{{ report.content|truncatechars:20}}</h3>
             {% empty %}
-            <p>記録がないよ</p>
+            <h2>記録がありません</h2>
             {% endfor %}
         </div>
     </body>

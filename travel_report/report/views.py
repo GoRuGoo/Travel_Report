@@ -12,11 +12,11 @@ class HomeView(generic.TemplateView):
 
 class TravelReportListView(LoginRequiredMixin,generic.ListView):
     model = TravelReport
-    template_name = 'travel_report.html'
-    
-    def get_queryset(self):
-        reports = TravelReport.objects.filter(user=self.request.user).order_by('-created_at')
+    template_name = 'travelreport.html'
+    '''
+    def get_queryset(self,**kwargs):
+        reports = TravelReport.objects
         return reports
-
+    '''
 class NotView(generic.TemplateView):
     template_name = "404.html"
