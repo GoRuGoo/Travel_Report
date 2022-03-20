@@ -26,6 +26,5 @@ class NotView(generic.TemplateView):
 
 
 class TravelReportDetailView(LoginRequiredMixin,generic.DetailView):
+    template_name = "travelreportdetail.html"
     model = TravelReport
-    template_name = 'travelreportdetail.html'
-    pk_url_kwarg = 'id'
