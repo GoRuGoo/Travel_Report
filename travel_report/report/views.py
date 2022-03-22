@@ -48,7 +48,7 @@ class TravelReportUpdateView(LoginRequiredMixin,generic.UpdateView):
     form_class = ReportCreateForm
 
     def get_success_url(self):
-        return reverse_lazy('reprot:report_detail',kwargs={'pk':self.kwargs['pk']})
+        return reverse_lazy('report:report_detail',kwargs={'pk':self.kwargs['pk']})
     
     def form_valid(self,form):
         return super().form_valid(form)
