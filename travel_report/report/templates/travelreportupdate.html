@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+    <html lang="ja">
+        <head>
+            <meta charset="UTF-8">
+            <title>編集</title>
+        </head>
+        <body>
+            <div>
+                <form method="POST",enctype='multipart/form-data'>
+                    {% csrf_token %}
+                    <table>
+                        {{form.as_table}}
+                    </table>
+                    <button type="submit">更新</button>
+                    <a href="{% url 'report:report_detail' object.pk %}">キャンセル</a>
+                </form>
+            </div>
+        </body>
+    </html>

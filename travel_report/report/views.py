@@ -42,6 +42,22 @@ class TravelReportCreateView(LoginRequiredMixin,generic.CreateView):
         'transportation','cost','member','thoughts')
     success_url = reverse_lazy('report:home')
 
+class TravelReportUpdateView(LoginRequiredMixin,generic.UpdateView):
+    model = TravelReport
+    template_name = "travelreportupdate.html"
+    form_class = ReportCreateForm
+
+    def get_success_url(self):
+        return reverse_lazy('reprot:report_detail',kwargs={'pk':self.kwargs['pk']})
+    
+    def form_valid(self,form):
+        return super().form_valid(form)
+    
+    def form_invalid(self,form):
+        return super().form_invalid(form)
+
+
+
 class TravelReportDeleteView(LoginRequiredMixin,generic.DeleteView):
     model = TravelReport
     template_name = "travelreportdelete.html"
