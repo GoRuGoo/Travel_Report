@@ -63,3 +63,4 @@ class TravelReportDeleteView(LoginRequiredMixin,generic.DeleteView):
     template_name = "travelreportdelete.html"
     success_url = reverse_lazy('report:home')
 
+
