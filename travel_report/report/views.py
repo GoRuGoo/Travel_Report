@@ -1,3 +1,4 @@
+from ast import Delete
 from calendar import c
 from dataclasses import field
 from re import template
@@ -39,4 +40,9 @@ class TravelReportCreateView(LoginRequiredMixin,generic.CreateView):
     forms_class = ReportCreateForm
     fields = ('user','title',
         'transportation','cost','member','thoughts')
+    success_url = reverse_lazy('report:home')
+
+class TravelReportDeleteView(LoginRequiredMixin,generic.DeleteView):
+    model = TravelReport
+    template_name = "travelreportdelete.html"
     success_url = reverse_lazy('report:home')
