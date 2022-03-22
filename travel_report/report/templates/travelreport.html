@@ -7,14 +7,19 @@
     <body>
         <div>
             <h1>記録</h1>
-            {% for report in  object_list %}
-            <a href="{% url 'report:report_detail' report.pk %}">
-                <h2>{{ report.title }}</h2>
-                <h3>{{ report.content|truncatechars:20}}</h3>
-            </a>
+            <div class="maincontent">
+                {% for report in  object_list %}
+                <a href="{% url 'report:report_detail' report.pk %}">
+                    <h2>{{ report.title }}</h2>
+                    <h3>{{ report.content|truncatechars:20}}</h3>
+                </a>
+            </div>
             {% empty %}
             <h2>記録がありません</h2>
             {% endfor %}
+            <div class="detail">
+                <a href="../report_create">作成</a>
+            </div>
         </div>
     </body>
 </html>
